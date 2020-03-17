@@ -30,7 +30,7 @@ public class MathController {
     @RequestMapping(path = "/divide/{number1}/and/{number2}", method = RequestMethod.GET)
     @ResponseBody
     public String divide(@PathVariable int number1, @PathVariable int number2) {
-        return number1 + " divided by " + number2 + " is " + (number1 % number2) + "!";
+        return number1 + " divided by " + number2 + " is " + (number1 / number2) + "!";
     }
 
 }
