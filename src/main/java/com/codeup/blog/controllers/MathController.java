@@ -1,36 +1,34 @@
 package com.codeup.blog.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MathController {
 
-    @RequestMapping(path = "/add/{number1}/and/{number2}", method = RequestMethod.GET)
+    @GetMapping("/add/{a}/and/{b}")
     @ResponseBody
-    public String add(@PathVariable int number1, @PathVariable int number2) {
-        return number1 + " plus " + number2 + " is " + (number1 + number2) + "!";
+    public String add(@PathVariable int a,@PathVariable int b){
+        return ""+(a+b);
     }
 
-    @RequestMapping(path = "/subtract/{number1}/and/{number2}", method = RequestMethod.GET)
+    @GetMapping("/subtract/{a}/from/{b}")
     @ResponseBody
-    public String subtract(@PathVariable int number1, @PathVariable int number2) {
-        return number1 + " minus " + number2 + " is " + (number1 - number2) + "!";
+    public String subtract(@PathVariable int a,@PathVariable int b){
+        return ""+(b-a);
     }
 
-    @RequestMapping(path = "/multiply/{number1}/and/{number2}", method = RequestMethod.GET)
+    @GetMapping("/multiply/{a}/and/{b}")
     @ResponseBody
-    public String multiply(@PathVariable int number1, @PathVariable int number2) {
-        return number1 + " multiplied by " + number2 + " is " + (number1 * number2) + "!";
+    public String multiply(@PathVariable int a,@PathVariable int b){
+        return ""+(a*b);
     }
 
-    @RequestMapping(path = "/divide/{number1}/and/{number2}", method = RequestMethod.GET)
+    @GetMapping("/divide/{a}/by/{b}")
     @ResponseBody
-    public String divide(@PathVariable int number1, @PathVariable int number2) {
-        return number1 + " divided by " + number2 + " is " + (number1 / number2) + "!";
+    public double divide(@PathVariable double a,@PathVariable double b){
+        return (a/b);
     }
-
 }
