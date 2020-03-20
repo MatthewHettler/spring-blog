@@ -1,5 +1,7 @@
 package com.codeup.blog.models;
 
+import com.codeup.blog.models.User;
+
 import javax.persistence.*;
 
 @Entity

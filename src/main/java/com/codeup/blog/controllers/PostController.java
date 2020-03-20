@@ -30,26 +30,25 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}")
-    public String getPost(@PathVariable int id, Model model){
-        Post post1 = new Post(id, "Europa's First Post", "Remote Learning Today!");
-        model.addAttribute("title", post1.getTitle());
-        model.addAttribute("body", post1.getBody());
+    public String getPost(@PathVariable long id, Model model){
+//        Post post1 = new Post(id, "Europa's First Post", "Remote Learning Today!");
+//        model.addAttribute("title", post1.getTitle());
+//        model.addAttribute("body", post1.getBody());
+        model.addAttribute("post",postDao.getOne(id));
         return "posts/show";
     }
 
     @GetMapping("/posts/create")
-    @ResponseBody
     public String getCreatePostForm(){
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String createPost(@RequestParam String title, @RequestParam String body){
+    public String createPost(@RequestParam String title, @RequestParam String body ){
         Post newPost = new Post();
         newPost.setTitle(title);
         newPost.setBody(body);
-        newPost.setUser(userDao.getOne(1L));
+        newPost.setUser(userDao.getOne(1l));
         postDao.save(newPost);
         return "redirect:/posts";
     }
