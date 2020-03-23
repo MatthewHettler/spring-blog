@@ -1,7 +1,5 @@
 package com.codeup.blog.models;
 
-import com.codeup.blog.models.AdImage;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +19,11 @@ public class Ad {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ad")
     private List<AdImage> images;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     @ManyToMany(mappedBy = "ads")
     private List<AdCategory> categories;
@@ -65,5 +68,21 @@ public class Ad {
 
     public void setImages(List<AdImage> images) {
         this.images = images;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<AdCategory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<AdCategory> categories) {
+        this.categories = categories;
     }
 }
