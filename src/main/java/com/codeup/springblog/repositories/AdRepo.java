@@ -1,6 +1,6 @@
-package com.codeup.blog.repositories;
+package com.codeup.springblog.repositories;
 
-import com.codeup.blog.models.Ad;
+import com.codeup.springblog.models.Ad;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

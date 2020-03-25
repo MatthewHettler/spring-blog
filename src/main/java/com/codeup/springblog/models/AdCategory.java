@@ -1,6 +1,4 @@
-package com.codeup.blog.models;
-
-import com.codeup.blog.models.Ad;
+package com.codeup.springblog.models;
 
 import javax.persistence.*;
 import java.util.List;
